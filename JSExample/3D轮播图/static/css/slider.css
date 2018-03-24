@@ -1,0 +1,35 @@
+.nav-header{
+  z-index: 1;
+}
+
+img {border:none;display:block}
+.slide-wp {
+  width: 100%;
+height: 100%;
+overflow: hidden;
+position: absolute;
+left: 0;
+top: 0;
+}
+.slide-wpp {
+
+position: absolute;
+background: rgba(206, 200, 200, 0.15);
+margin-left: 45%;
+bottom: 2%;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+padding: 0 20px 6px 10px;
+_padding: 0 20px 2px 10px;
+}
+.slide li {
+float: left;
+margin-left: 10px;
+font-size: 20px;
+font-weight: bold;
+font-family: tahoma;
+color: #22739e;
+cursor: pointer;
+height: 22px;
+}
+.slide li.cur{color: red;}

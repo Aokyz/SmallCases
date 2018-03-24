@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .wrap{
+      width: 400px;
+      margin: auto;
+    }
+      .box{
+        width: 400px;
+        height: 300px;
+        background: #ccc;
+        margin: 20px auto;
+      }
+      .fason{
+        width: 400px;
+        height: 20px;
+        border-bottom: 1px solid #ccc;
+      }
+      img{
+        float: left;
+      }
+      button{
+        float: right;
+      }
+      ul{
+        list-style: none;
+      }
+      ul li{
+        border-bottom: 1px dotted #ddd;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="box" contenteditable="true"></div>
+      <div class="fason">
+         <img src="./bgc3.jpg" alt="" width="20px;height="20px""/>
+         <button type="button" name="button" class="trip">发送</button>
+
+      </div>
+      <ul></ul>
+    </div>
+   <script type="text/javascript">
+      var obox=document.querySelector(".box");
+      var otrip=document.querySelector(".trip");
+      var oul=document.querySelector("ul");
+      /*var a=7;
+      var b=a;
+      b=0;
+      alert(a);//a=7
+      alert(b);//b=0*/
+      otrip.onclick=function(){
+        var str=obox.innerHTML;
+        if(str==''){
+          obox.focus();
+          alert("222");
+        }
+        /*这里是把obox的内容赋给了str，
+        所以str只是一个内容，改变了它与obox的内容一点关系都没有,
+        就相当于var a=7;
+        var b=a;
+        b=0这时a 还是等于7*/
+        else{oul.innerHTML+="<li>"+str+"</li>";
+        obox.innerHTML="";
+      alert("333");}
+      }
+
+   </script>
+  </body>
+</html>

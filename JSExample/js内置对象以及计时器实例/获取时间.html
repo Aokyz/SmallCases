@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{margin: 0;padding: 0;}
+		#time{
+			width: 500px;padding: 20px;border:1px solid #ccc;
+			margin:50px auto;
+			font-size: 25px;
+		}
+	</style>
+</head>
+<body>
+	<div id="time">
+		现在是：
+		<h3 id="current"></h3>
+	</div>
+	<script type="text/javascript">
+		var current_time=document.getElementById('current');
+		var arr=['日','一','二','三','四','五','六'];
+		var timer=setInterval(
+			time()
+		,1000);
+		
+		
+		//time();
+		//console.log(arr[3]);
+		function time(){
+			var date=new Date();
+			var year=date.getFullYear();
+			var month=date.getMonth();
+			var dat=date.getDate();
+			var day=date.getDay();
+			// 
+			var hours=date.getHours();
+			var minutes=date.getMinutes();
+			var seconds=date.getSeconds();
+			month=(month+1)<10?"0"+(month+1):(month+1);
+			dat=dat<10?"0"+dat:dat;
+			
+			hours=hours<10?"0"+hours:hours;
+			minutes=minutes<10?"0"+minutes:minutes;
+			seconds=seconds<10?"0"+seconds:seconds;
+			 current_time.innerHTML=year+'年'+month+'月'+dat+'日'+'星期'+arr[day]+':'+hours+'时'+minutes+'分'+seconds+'秒';
+			 return time;
+
+		}
+	
+	</script>
+</body>
+</html>

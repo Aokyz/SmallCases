@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片竖直向上和向下滚动</title>
+	<style type="text/css">
+	*{margin:0;padding: 0;}
+	#box{width: 305px;height: 301px;border: 1px solid #ccc;
+		margin:50px auto;position: relative;overflow: hidden;}
+		#top{position: absolute;top:0;background: #ccc;width:100%;line-height: 30px;text-align: center;z-index:99;}
+		#bottom{position: absolute;bottom:0;background: #ccc;width:100%;line-height: 30px;text-align: center;z-index:99;}
+		ul{list-style: none;position: relative;top:30px;left:20px;}
+
+	</style>
+</head>
+<body>
+	<div id="box">
+		<p id="top">上</p>
+		<ul id="picture">
+			<li><img src="images/scroll1.png"></li>
+			<li><img src="images/scroll2.png"></li>
+			<li><img src="images/scroll3.png"></li>
+		</ul>
+		<p id="bottom">下</p>
+	</div>
+	<script type="text/javascript">
+		var op=document.getElementsByTagName('p');
+		var oul=document.getElementById('picture');
+		var num=30;
+		var timer;
+		op[0].onmousedown=function(){
+			timer=setInterval(function(){
+				if(num>-459){
+					num--;
+					oul.style.top=num+'px';
+				}else {clearInterval(timer);}
+			},1000/60);
+		}
+		document.onmouseup=function(){
+			clearInterval(timer);
+		}
+		op[1].onmousedown=function(){
+			timer=setInterval(function(){
+				if(num<30){
+					num++;
+					oul.style.top=num+'px';
+				}else {clearInterval(timer);}
+			},1000/60);
+		}
+
+	</script>
+</body>
+</html>

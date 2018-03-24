@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>队列</title>
+  <style type="text/css">
+    ul li{list-style: none;
+             padding: 10px;
+             margin-right: 10px;
+             background: red;
+             width:20px;
+             height: 10px;
+             display: inline-block;
+             text-align: center;
+           }
+  </style>
+</head>
+<body>
+  <input type="" name="" id="ipu">
+  <button id="lin">左侧入</button>
+  <button id="rin">右侧入</button>
+  <button id="lout">左侧出</button>
+  <button id="rout">右侧出</button>
+  <ul id="query">
+   <!--  <li>10</li>
+    <li>3</li>
+    <li>5</li>
+    <li>5</li> -->
+  </ul>
+  <script type="text/javascript">
+    var oipu=document.getElementById('ipu');
+    var olin=document.getElementById('lin');
+    var orin=document.getElementById('rin');
+    var olout=document.getElementById('lout');
+    var orout=document.getElementById('rout');
+    var oul=document.getElementById('query');
+    /*childNodes 包括元素节点和文本节点，IE：只获取元素节点；
+　　非IE：获取元素节点与文本节点；
+　　解决方案：if(childNode.nodeName=="#text") continue 或者 if(childNode.nodeType != '3') continue */
+    //children：获取元素节点，浏览器表现相同,建议使用children
+    /*firstChild与firstElementChild
+　　相同点：获取父节点下的第一个节点对象；
+　　不同点：1、firstchild：IE6,7,8：第一个元素节点；
+　　　　　　　　　　　　   非IE6,7,8：第一个节点，文本节点或者元素节点；
+　　　　　　2、firstElementChild：IE6,7,8：不支持；
+　　　　　　　　　　　　　　　　　 非IE6,7,8：第一个元素节点*/
+    olin.onclick=function(){
+      var val=oipu.value;
+      var oli=document.createElement('li');
+      console.log(val);
+      oli.style.height=10*val+'px';
+      if(oul.children.length){
+        var op=oul.children[0];
+        oul.insertBefore(oli,op);
+      }
+      else{
+        oul.appendChild(oli);
+      }
+
+    }
+    orin.onclick=function(){
+      var val=oipu.value;
+      var oli=document.createElement('li');
+      oli.innerHTML=val;
+      oul.appendChild(oli);
+    }
+    olout.onclick=function(){
+      var oli=oul.children[0];
+      if(oul.children.length){
+        oul.removeChild(oli);
+      }
+      else{
+        alert("此时队列中无元素可以删除！");
+      }
+
+    }
+    orout.onclick=function(){
+      var oli=oul.getElementsByTagName('li');
+      if(oul.children.length){
+        var op=oul.children[oli.length-1];
+        oul.removeChild(op);
+      }
+      else{
+        alert("此时队列中无元素可以删除！");
+      }
+
+    }
+  </script>
+</body>
+</html>
